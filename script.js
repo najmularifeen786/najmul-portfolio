@@ -85,10 +85,11 @@ function handleSubmit() {
     const publicKey = 'IUtDCnfrO3kIOscw0';
 
     const templateParams = {
-        from_name: name,
-        from_email: email,
+        name: name,
+        email: email,
         message: message,
-        to_name: 'Najmul Arifeen'
+        title: 'New Portfolio Contact',
+        time: new Date().toLocaleString()
     };
 
     // Send email using EmailJS
