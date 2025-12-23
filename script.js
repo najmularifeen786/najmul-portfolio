@@ -50,24 +50,74 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Contact Form
+// Contact Form with EmailJS
 function handleSubmit() {
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
     const status = document.getElementById('formStatus');
+    const submitButton = document.querySelector('.contact-form .btn-primary');
 
-    if (name && email && message) {
-        status.textContent = 'Message sent! (Note: Connect to a backend service to enable actual email sending)';
-        document.getElementById('name').value = '';
-        document.getElementById('email').value = '';
-        document.getElementById('message').value = '';
-
-        setTimeout(() => {
-            status.textContent = '';
-        }, 5000);
-    } else {
+    // Validation
+    if (!name || !email || !message) {
         status.textContent = 'Please fill in all fields!';
         status.style.color = '#ef4444';
+        return;
     }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        status.textContent = 'Please enter a valid email address!';
+        status.style.color = '#ef4444';
+        return;
+    }
+
+    // Disable button and show loading state
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending...';
+    status.textContent = '';
+
+    // EmailJS configuration
+    // Replace these with your actual EmailJS credentials
+    const serviceID = 'service_x2b6yag';
+    const templateID = 'template_0or8crh';
+    const publicKey = 'IUtDCnfrO3kIOscw0';
+
+    const templateParams = {
+        from_name: name,
+        from_email: email,
+        message: message,
+        to_name: 'Najmul Arifeen'
+    };
+
+    // Send email using EmailJS
+    emailjs.send(serviceID, templateID, templateParams, publicKey)
+        .then(() => {
+            status.textContent = 'Message sent successfully! I\'ll get back to you soon.';
+            status.style.color = '#10b981';
+            
+            // Clear form
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('message').value = '';
+            
+            // Reset button
+            submitButton.disabled = false;
+            submitButton.textContent = 'Send Message';
+            
+            // Clear status after 5 seconds
+            setTimeout(() => {
+                status.textContent = '';
+            }, 5000);
+        })
+        .catch((error) => {
+            console.error('Email send failed:', error);
+            status.textContent = 'Failed to send message. Please try again or email me directly.';
+            status.style.color = '#ef4444';
+            
+            // Reset button
+            submitButton.disabled = false;
+            submitButton.textContent = 'Send Message';
+        });
 }
