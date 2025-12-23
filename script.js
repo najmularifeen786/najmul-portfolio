@@ -122,10 +122,39 @@ function handleSubmit() {
             submitButton.textContent = 'Send Message';
         });
 }
-// Force mailto links to work
-document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.stopPropagation();
-        window.location.href = this.getAttribute('href');
+// Add this to the bottom of your script.js file
+// This opens Gmail in browser instead of requiring a desktop email client
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle email link clicks
+    const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
+    
+    emailLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); // Stop default mailto behavior
+            
+            const email = this.getAttribute('href').replace('mailto:', '');
+            
+            // Open Gmail compose in new tab
+            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}`;
+            window.open(gmailUrl, '_blank');
+        });
+    });
+    
+    // Handle phone link clicks (optional - makes it copyable on desktop)
+    const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+    
+    phoneLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // On desktop, copy number to clipboard instead of calling
+            if (window.innerWidth > 768) {
+                e.preventDefault();
+                const phoneNumber = this.textContent;
+                navigator.clipboard.writeText(phoneNumber).then(() => {
+                    alert('Phone number copied to clipboard: ' + phoneNumber);
+                });
+            }
+            // On mobile, let it dial normally
+        });
     });
 });
