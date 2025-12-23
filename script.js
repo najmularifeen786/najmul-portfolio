@@ -79,7 +79,6 @@ function handleSubmit() {
     status.textContent = '';
 
     // EmailJS configuration
-    // Replace these with your actual EmailJS credentials
     const serviceID = 'service_x2b6yag';
     const templateID = 'template_0or8crh';
     const publicKey = 'IUtDCnfrO3kIOscw0';
@@ -122,39 +121,37 @@ function handleSubmit() {
             submitButton.textContent = 'Send Message';
         });
 }
-// Add this to the bottom of your script.js file
-// This opens Gmail in browser instead of requiring a desktop email client
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Handle email link clicks
-    const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
+// EMAIL LINK FIX - Opens Gmail in browser
+window.addEventListener('load', function() {
+    console.log('Email link handler loaded');
     
-    emailLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault(); // Stop default mailto behavior
+    // Get all email links
+    const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
+    console.log('Found email links:', emailLinks.length);
+    
+    emailLinks.forEach((link, index) => {
+        console.log('Setting up email link', index, link.href);
+        
+        // Remove any existing click handlers
+        const newLink = link.cloneNode(true);
+        link.parentNode.replaceChild(newLink, link);
+        
+        newLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            console.log('Email link clicked!');
             
             const email = this.getAttribute('href').replace('mailto:', '');
+            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=Portfolio%20Contact`;
             
-            // Open Gmail compose in new tab
-            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}`;
+            console.log('Opening Gmail:', gmailUrl);
             window.open(gmailUrl, '_blank');
         });
-    });
-    
-    // Handle phone link clicks (optional - makes it copyable on desktop)
-    const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
-    
-    phoneLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            // On desktop, copy number to clipboard instead of calling
-            if (window.innerWidth > 768) {
-                e.preventDefault();
-                const phoneNumber = this.textContent;
-                navigator.clipboard.writeText(phoneNumber).then(() => {
-                    alert('Phone number copied to clipboard: ' + phoneNumber);
-                });
-            }
-            // On mobile, let it dial normally
-        });
+        
+        // Make sure it looks clickable
+        newLink.style.cursor = 'pointer';
+        newLink.style.textDecoration = 'underline';
     });
 });
