@@ -122,3 +122,10 @@ function handleSubmit() {
             submitButton.textContent = 'Send Message';
         });
 }
+// Force mailto links to work
+document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.stopPropagation();
+        window.location.href = this.getAttribute('href');
+    });
+});

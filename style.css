@@ -484,3 +484,32 @@ footer p {
         font-size: 2rem;
     }
 }
+.contact-item a[href^="mailto:"],
+.contact-item a[href^="tel:"] {
+    color: #d1d5db !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    display: inline !important;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+.contact-item a[href^="mailto:"]:hover,
+.contact-item a[href^="tel:"]:hover {
+    color: #10b981 !important;
+    text-decoration: underline !important;
+}
+
+/* Make sure the icon doesn't block the link */
+.contact-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    position: relative !important;
+}
+
+.contact-item i {
+    pointer-events: none !important;
+    z-index: 1 !important;
+}
