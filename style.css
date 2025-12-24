@@ -335,8 +335,7 @@ h2 .highlight {
     color: #059669;
 }
 
-/* Contact Section - Add/Update this in your style.css */
-
+/* Contact Section */
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -358,27 +357,16 @@ h2 .highlight {
 .contact-item i {
     color: #10b981;
     font-size: 1.2rem;
-    min-width: 24px;
-    flex-shrink: 0;
-}
-
-/* IMPORTANT: This makes the email and phone links clickable */
-.contact-item a,
-.contact-item span {
-    color: #d1d5db;
-    text-decoration: none;
-    transition: color 0.3s;
-    word-break: break-word;
 }
 
 .contact-item a {
-    cursor: pointer !important;
-    pointer-events: auto !important;
+    color: #d1d5db;
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
 .contact-item a:hover {
     color: #10b981;
-    text-decoration: underline;
 }
 
 .contact-form {
@@ -414,7 +402,6 @@ h2 .highlight {
     color: #10b981;
     text-align: center;
     font-size: 0.9rem;
-    margin-top: 0.5rem;
 }
 
 /* Footer */
@@ -483,55 +470,4 @@ footer p {
     h2 {
         font-size: 2rem;
     }
-}
-/* Add this to your style.css - Contact Link Styling */
-
-.contact-link {
-    color: #d1d5db;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-    padding: 0.25rem 0;
-}
-
-.contact-link:hover {
-    color: #10b981;
-}
-
-/* Add underline effect on hover */
-.contact-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #10b981;
-    transition: width 0.3s ease;
-}
-
-.contact-link:hover::after {
-    width: 100%;
-}
-
-/* Make email link stand out more */
-.email-link {
-    font-weight: 500;
-}
-
-/* Ensure items are properly spaced */
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.contact-item i {
-    color: #10b981;
-    font-size: 1.2rem;
-    width: 24px;
-    flex-shrink: 0;
 }

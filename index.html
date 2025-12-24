@@ -6,7 +6,6 @@
     <title>Najmul Arifeen - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -64,28 +63,28 @@
             <div class="skill-card fade-element">
                 <h3><i class="fas fa-code"></i> Current</h3>
                 <ul>
-                    <li>• C++</li>
-                    <li>• Java</li>
-                    <li>• Object-Oriented Programming</li>
-                    <li>• Data Structures & Algorithms</li>
-                    <li>• Web Scraping</li>
+                    <li>â€¢ C++</li>
+                    <li>â€¢ Java</li>
+                    <li>â€¢ Object-Oriented Programming</li>
+                    <li>â€¢ Data Structures & Algorithms</li>
+                    <li>â€¢ Web Scraping</li>
                 </ul>
             </div>
             <div class="skill-card fade-element">
                 <h3><i class="fas fa-book-open"></i> Exploring</h3>
                 <ul>
-                    <li>• Web Development</li>
-                    <li>• Artificial Intelligence</li>
-                    <li>• Machine Learning</li>
+                    <li>â€¢ Web Development</li>
+                    <li>â€¢ Artificial Intelligence</li>
+                    <li>â€¢ Machine Learning</li>
                 </ul>
             </div>
             <div class="skill-card fade-element">
                 <h3><i class="fas fa-award"></i> Upcoming</h3>
                 <ul>
-                    <li>• Databases</li>
-                    <li>• Computer Networking</li>
-                    <li>• Operating Systems</li>
-                    <li>• System Administration</li>
+                    <li>â€¢ Databases</li>
+                    <li>â€¢ Computer Networking</li>
+                    <li>â€¢ Operating Systems</li>
+                    <li>â€¢ System Administration</li>
                 </ul>
             </div>
         </div>
@@ -131,11 +130,11 @@
                 <h3><i class="fas fa-award"></i> Tech Hierarchy Sessions</h3>
                 <p>Multiple Certifications</p>
                 <p style="color: #6b7280; font-size: 0.9rem; margin-top: 0.5rem;">
-                    • Bug Hunting Essentials<br>
-                    • Career in Cyber Security<br>
-                    • DevOps Essentials<br>
-                    • Freelancing & Tech Career<br>
-                    • Interview Essentials
+                    â€¢ Bug Hunting Essentials<br>
+                    â€¢ Career in Cyber Security<br>
+                    â€¢ DevOps Essentials<br>
+                    â€¢ Freelancing & Tech Career<br>
+                    â€¢ Interview Essentials
                 </p>
             </div>
         </div>
@@ -171,44 +170,45 @@
         </div>
     </section>
 
-    <!-- Replace your contact section with this -->
-<section id="contact">
-    <h2 class="fade-element">Get In <span class="highlight">Touch</span></h2>
-    <div class="contact-grid">
-        <div class="contact-info fade-element">
-            <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Contact Information</h3>
-            <div class="contact-item">
-                <i class="fas fa-phone"></i>
-                <a href="tel:+923135818300" class="contact-link">+92 313 5818300</a>
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="fade-element">Get In <span class="highlight">Touch</span></h2>
+        <div class="contact-grid">
+            <div class="contact-info fade-element">
+                <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Contact Information</h3>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+92 313 5818300</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:najmularifeen786@gmail.com">najmularifeen786@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/najmul-arifeen-a6a9a7334" target="_blank">LinkedIn Profile</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/najmularifeen786" target="_blank">GitHub Profile</a>
+                </div>
             </div>
-            <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <a href="mailto:najmularifeen786@gmail.com" class="contact-link email-link">najmularifeen786@gmail.com</a>
-            </div>
-            <div class="contact-item">
-                <i class="fab fa-linkedin"></i>
-                <a href="https://www.linkedin.com/in/najmul-arifeen-a6a9a7334" target="_blank" rel="noopener noreferrer" class="contact-link">LinkedIn Profile</a>
-            </div>
-            <div class="contact-item">
-                <i class="fab fa-github"></i>
-                <a href="https://github.com/najmularifeen786" target="_blank" rel="noopener noreferrer" class="contact-link">GitHub Profile</a>
+            <div class="contact-form fade-element">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" placeholder="Your Message" required></textarea>
+                </div>
+                <button class="btn-primary" onclick="handleSubmit()">Send Message</button>
+                <p id="formStatus" class="form-status"></p>
             </div>
         </div>
-        <div class="contact-form fade-element">
-            <div class="form-group">
-                <input type="text" id="name" placeholder="Your Name" required>
-            </div>
-            <div class="form-group">
-                <input type="email" id="email" placeholder="Your Email" required>
-            </div>
-            <div class="form-group">
-                <textarea id="message" placeholder="Your Message" required></textarea>
-            </div>
-            <button class="btn-primary" onclick="handleSubmit()">Send Message</button>
-            <p id="formStatus" class="form-status"></p>
-        </div>
-    </div>
-</section>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="footer-icons">

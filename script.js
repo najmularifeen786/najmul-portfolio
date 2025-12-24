@@ -122,36 +122,4 @@ function handleSubmit() {
         });
 }
 
-// EMAIL LINK FIX - Opens Gmail in browser
-window.addEventListener('load', function() {
-    console.log('Email link handler loaded');
-    
-    // Get all email links
-    const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
-    console.log('Found email links:', emailLinks.length);
-    
-    emailLinks.forEach((link, index) => {
-        console.log('Setting up email link', index, link.href);
-        
-        // Remove any existing click handlers
-        const newLink = link.cloneNode(true);
-        link.parentNode.replaceChild(newLink, link);
-        
-        newLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            console.log('Email link clicked!');
-            
-            const email = this.getAttribute('href').replace('mailto:', '');
-            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=Portfolio%20Contact`;
-            
-            console.log('Opening Gmail:', gmailUrl);
-            window.open(gmailUrl, '_blank');
-        });
-        
-        // Make sure it looks clickable
-        newLink.style.cursor = 'pointer';
-        newLink.style.textDecoration = 'underline';
-    });
-});
+
